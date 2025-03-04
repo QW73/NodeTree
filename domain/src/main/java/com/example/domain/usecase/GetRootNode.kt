@@ -4,5 +4,5 @@ import com.example.domain.model.Node
 import com.example.domain.repository.ITreeRepository
 
 class GetRootNodeUseCase(private val repository: ITreeRepository) {
-    suspend operator fun invoke(): Node = repository.getRootNode()
+    suspend operator fun invoke(): Result<Node> = repository.getRootNode()
 }

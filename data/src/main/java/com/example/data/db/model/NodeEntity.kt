@@ -6,16 +6,13 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "nodes",
-    foreignKeys = [ForeignKey(
+    tableName = "nodes", foreignKeys = [ForeignKey(
         entity = NodeEntity::class,
         parentColumns = ["id"],
         childColumns = ["parentId"],
         onDelete = ForeignKey.CASCADE
-    )], indices = [Index("parentId")]
+    )], indices = [Index("parentId"), Index("id")]
 )
 data class NodeEntity(
-    @PrimaryKey val id: String,
-    val name: String,
-    val parentId: String?
+    @PrimaryKey val id: String, val name: String, val parentId: String?
 )
