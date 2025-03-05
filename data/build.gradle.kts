@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt.android)
     id("org.jetbrains.kotlin.kapt")
 }
 
@@ -19,8 +20,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -44,15 +44,15 @@ dependencies {
 
     implementation(project(":domain"))
 
-    // Dagger
-    implementation (libs.dagger)
-    kapt (libs.dagger.compiler)
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.52")
+    kapt("com.google.dagger:hilt-compiler:2.52")
+
 
     // Room
-    implementation (libs.androidx.room.runtime)
+    implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
-    implementation (libs.androidx.room.ktx)
-
+    implementation(libs.androidx.room.ktx)
 
 
 }

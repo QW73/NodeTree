@@ -5,25 +5,28 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.example.data.db.model.NodeEntity
+import com.example.data.db.model.TreeNodeEntity
 
 @Dao
-interface NodeDao {
+interface TreeDao {
     @Query("SELECT * FROM nodes WHERE id = :id")
-    suspend fun getNodeById(id: String): NodeEntity?
+    suspend fun getNodeById(id: String): TreeNodeEntity?
 
     @Query("SELECT * FROM nodes WHERE parentId = :parentId")
-    suspend fun getChildren(parentId: String): List<NodeEntity>
+    suspend fun getChildren(parentId: String): List<TreeNodeEntity>
 
     @Query("SELECT * FROM nodes WHERE parentId IS NULL LIMIT 1")
-    suspend fun getRoot(): NodeEntity?
+    suspend fun getRoot(): TreeNodeEntity?
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(node: NodeEntity)
+    suspend fun insert(node: TreeNodeEntity)
 
     @Transaction
     @Query("DELETE FROM nodes WHERE id = :id")
     suspend fun delete(id: String)
+
+    @Query("DELETE FROM nodes")
+    suspend fun deleteAll()
 }
 

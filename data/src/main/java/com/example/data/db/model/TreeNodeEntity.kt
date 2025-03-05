@@ -7,12 +7,12 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "nodes", foreignKeys = [ForeignKey(
-        entity = NodeEntity::class,
+        entity = TreeNodeEntity::class,
         parentColumns = ["id"],
         childColumns = ["parentId"],
         onDelete = ForeignKey.CASCADE
     )], indices = [Index("parentId"), Index("id")]
 )
-data class NodeEntity(
+data class TreeNodeEntity(
     @PrimaryKey val id: String, val name: String, val parentId: String?
 )

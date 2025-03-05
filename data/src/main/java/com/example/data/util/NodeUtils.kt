@@ -1,19 +1,19 @@
 package com.example.data.util
 
-import com.example.domain.model.Node
+import com.example.domain.model.TreeNode
 import java.security.MessageDigest
 import java.util.UUID
 
 object NodeUtils {
-    fun generateNodeName(id: String): String {
+    private fun generateNodeName(id: String): String {
         val digest = MessageDigest.getInstance("SHA-256")
         val hash = digest.digest(id.toByteArray())
-        return hash.joinToString("") { "%02x".format(it) }.takeLast(40)
+        return hash.takeLast(20).joinToString("") { "%02x".format(it) }
     }
 
-    fun createNode(parentId: String?): Node {
+    fun createNode(parentId: String?): TreeNode {
         val id = UUID.randomUUID().toString()
         val name = generateNodeName(id)
-        return Node(id, name, parentId)
+        return TreeNode(id, name, parentId)
     }
 }

@@ -23,3 +23,5 @@ rootProject.name = "NodeTree"
 include(":app")
 include(":data")
 include(":domain")
+include(":presentation")
+include(":presentation")
