@@ -15,4 +15,9 @@ class TreeNavigatorImpl(private val navController: NavController) : TreeNavigato
     override fun navigateUp() {
         navController.popBackStack()
     }
+
+    override fun resetToRoot() {
+        navController.popBackStack(R.id.treeFragment, true)
+        navController.navigate(R.id.treeFragment)
+    }
 }

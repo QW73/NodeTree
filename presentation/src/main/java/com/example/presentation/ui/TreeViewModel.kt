@@ -73,7 +73,10 @@ class TreeViewModel @Inject constructor(
 
     fun clearAllNodes() {
         viewModelScope.launch {
-            deleteAllNodesUseCase().fold(onSuccess = { loadNode(null) }, onFailure = {
+            deleteAllNodesUseCase().fold(onSuccess = {
+                _uiState.value = TreeUiState.Loading
+                loadNode(null)
+            }, onFailure = {
                 _uiState.value = TreeUiState.Error(it.message ?: "Failed to clear nodes")
             })
         }

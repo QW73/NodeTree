@@ -60,6 +60,7 @@ class TreeFragment : Fragment() {
 
         binding.deleteAllButton.setOnClickListener {
             viewModel.clearAllNodes()
+            treeNavigator.resetToRoot()
         }
     }
 
