@@ -45,9 +45,8 @@ dependencies {
     implementation(project(":domain"))
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.52")
-    kapt("com.google.dagger:hilt-compiler:2.52")
-
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     // Room
     implementation(libs.androidx.room.runtime)

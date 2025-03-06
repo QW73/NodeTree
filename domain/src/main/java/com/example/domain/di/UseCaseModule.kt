@@ -35,5 +35,4 @@ object UseCaseModule {
     @Singleton
     fun provideDeleteAllNodesUseCase(repository: TreeRepository) = DeleteAllNodesUseCase(repository)
 
-
 }

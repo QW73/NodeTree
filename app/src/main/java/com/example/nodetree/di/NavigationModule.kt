@@ -3,7 +3,7 @@ package com.example.nodetree.di
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.example.data.navigation.TreeNavigatorImpl
+import com.example.nodetree.navigation.TreeNavigatorImpl
 import com.example.presentation.TreeNavigator
 import dagger.Module
 import dagger.Provides

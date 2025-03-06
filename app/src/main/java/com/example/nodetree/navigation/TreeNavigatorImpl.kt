@@ -1,4 +1,4 @@
-package com.example.data.navigation
+package com.example.nodetree.navigation
 
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
@@ -8,8 +8,7 @@ import com.example.presentation.TreeNavigator
 class TreeNavigatorImpl(private val navController: NavController) : TreeNavigator {
     override fun navigateToChild(nodeId: String) {
         navController.navigate(
-            R.id.action_treeFragment_to_treeFragment,
-            bundleOf("nodeId" to nodeId)
+            R.id.action_treeFragment_to_treeFragment, bundleOf("nodeId" to nodeId)
         )
     }
 
