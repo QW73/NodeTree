@@ -25,7 +25,7 @@ class TreeViewModel @Inject constructor(
     private val deleteAllNodesUseCase: DeleteAllNodesUseCase
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<TreeUiState>(TreeUiState.Loading)
+    val _uiState = MutableStateFlow<TreeUiState>(TreeUiState.Loading)
     val uiState: StateFlow<TreeUiState> = _uiState.asStateFlow()
 
     fun loadNode(nodeId: String? = null) {
