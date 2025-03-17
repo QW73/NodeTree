@@ -1,18 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.NodeTree" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:colorBackground">@color/app_background</item>
-        <item name="android:textColor">@color/text_primary</item>
-        <item name="android:colorAccent">@color/accent</item>
 
-        <!-- Buttons custom style -->
-        <item name="materialButtonStyle">@style/CustomButton</item>
-
-    </style>
-
-    <style name="CustomButton" parent="Widget.Material3.Button">
-        <item name="android:backgroundTint">@color/button_background</item>
-        <item name="android:textColor">@color/button_text</item>
     </style>
 
 </resources>
